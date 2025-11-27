@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Usage: Convert sec from reference epoch to calendar components.
-       Input is seconds. Output is year, month, day, hour, minute, second, frac.
+       Input is seconds. Output is year, month, day, hour, minute, second.frac
 """
 usage = __doc__
 
