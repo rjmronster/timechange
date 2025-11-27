@@ -48,7 +48,7 @@ def main():
       print("input time was:", gpstime )
       print("output time is:", end=" " )
    utctime = gps2utc(gpstime)
-   print(f"{utctime}")
+   print(f"{utctime:18.6f}")
 
 if __name__ == "__main__":
    main()

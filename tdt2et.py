@@ -52,7 +52,7 @@ def main():
       print("input time was:", tdttime )
       print("output time is:", end=" " )
    ettime = tdt2et(tdttime)
-   print(f"{ettime}")
+   print(f"{ettime:18.6f}")
 
 if __name__ == "__main__":
    main()

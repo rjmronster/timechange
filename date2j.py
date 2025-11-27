@@ -65,7 +65,7 @@ def main():
       print("input time was:", year, month, day )
       print("output time is:", end=" " )
    jdtime = date2j(year, month, day)
-   print(f"{jdtime}")
+   print(f"{jdtime:18.6f}")
 
 if __name__ == "__main__":
    main()

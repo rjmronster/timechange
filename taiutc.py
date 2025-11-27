@@ -51,8 +51,7 @@ def main():
       print("input time was:", utctime )
       print("output time is:", end=" " )
    tai_minus_utc = taiutc(utctime)
-   tai_minus_utc = taiutc(utctime)
-   print(f"{tai_minus_utc}")
+   print(f"{tai_minus_utc:18.6f}")
 
 if __name__ == "__main__":
    main()

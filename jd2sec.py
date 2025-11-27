@@ -49,7 +49,7 @@ def main():
       print("input time was:", jdtime )
       print("output time is:", end=" " )
    sec = jd2sec(jdtime)
-   print( f"{sec}" )
+   print(f"{sec:18.6f}")
 
 if __name__ == "__main__":
    main()

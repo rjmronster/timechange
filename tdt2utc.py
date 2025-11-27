@@ -46,7 +46,7 @@ def main():
       print("input time was:", tdttime )
       print("output time is:", end=" " )
    utctime = tdt2utc(tdttime)
-   print(f"{utctime}")
+   print(f"{utctime:18.6f}")
 
 if __name__ == "__main__":
    main()

@@ -42,7 +42,7 @@ def main():
       print("input time was:", gpstime )
       print("output time is:", end=" " )
    tdttime = gps2tdt(gpstime)
-   print(f"{tdttime}")
+   print(f"{tdttime:18.6f}")
 
 if __name__ == "__main__":
    main()
