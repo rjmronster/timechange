@@ -34,7 +34,7 @@ def jd2cal(jd,verbose=False):
     # fractional seconds
     frac = dsec - int(dsec)
     # return second.frac
-    secondfrac = float( second ) + float ( frac )
+    secondfrac = second + frac
 
     return year, month, day, hour, minute, secondfrac
 
