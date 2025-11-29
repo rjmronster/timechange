@@ -15,7 +15,11 @@ def jd2sec(jd,verbose=False):
     Convert Julian Date to seconds past J2000
     """
 
-    year, month, day, hour, minute, second, frac = jd2cal(jd)
+    year, month, day, hour, minute, secondfrac = jd2cal(jd)
+  # fractional seconds
+    second = int(secondfrac)
+    frac = secondfrac - second
+
     sec = cal2sec(year, month, day, hour, minute, second, frac)
     return sec
 
