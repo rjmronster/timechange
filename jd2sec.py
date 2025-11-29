@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Usage: Convert Julian Date to seconds past J2000 
-       Input is Julian Date. Output is seconds past refernce epoch.
+       Input is Julian Date. Output is seconds past refernece epoch.
 """
 usage = __doc__
 
