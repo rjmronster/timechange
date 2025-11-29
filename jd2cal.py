@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Usage: Convert Julian date to calendar components.
-       Input is Julian date. Output is year, month, day, hour, minute, second, frac.
+       Input is Julian date. Output is year, month, day, hour, minute, second.frac.
 """
 usage = __doc__
 
@@ -13,7 +13,7 @@ def jd2cal(jd,verbose=False):
     """
     Convert Julian date to calendar components.
     Returns:
-      year, month, day, hour, minute, second, frac
+      year, month, day, hour, minute, second.frac
     """
     sec_per_day = 86400.0
     jdplus = jd + 0.5
@@ -33,8 +33,10 @@ def jd2cal(jd,verbose=False):
     second = isec
     # fractional seconds
     frac = dsec - int(dsec)
+    # return second.frac
+    secondfrac = float( second ) + float ( frac )
 
-    return year, month, day, hour, minute, second, frac
+    return year, month, day, hour, minute, secondfrac
 
 def main():
 #  this is shown with --help and -h
@@ -65,8 +67,8 @@ def main():
       print(usage)
       print("input time was:", jdtime )
       print("output:")
-   year, month, day, hour, minute, second, frac = jd2cal(jdtime)
-   print(f"{year:4d} {month:02d} {day:02d} {hour:02d} {minute:02d} {second:02d} {frac:10.6f}")
+   year, month, day, hour, minute, secondfrac = jd2cal(jdtime)
+   print(f"{year:4d} {month:02d} {day:02d} {hour:02d} {minute:02d} {secondfrac:10.6f}")
 
 if __name__ == "__main__":
    main()
