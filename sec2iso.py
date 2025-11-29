@@ -7,24 +7,7 @@ usage = __doc__
 
 import sys
 import argparse
-from sec2jd import sec2jd
-from jd2cal import jd2cal
-
-def sec2cal(sec,verbose=False):
-    """
-    Convert Julian date to calendar components.
-    Returns:
-      year, month, day, hour, minute, second, frac
-    """
-    frac = float (sec) - int (sec)
-    if ( frac < 0.0 ):
-       frac += 1
-
-    jd = sec2jd( sec - frac + 0.5);
-    year, month, day, hour, minute, second, temp = jd2cal(jd)
-    secondfrac = float( second ) + frac
-
-    return year, month, day, hour, minute, secondfrac
+from sec2cal import sec2cal
 
 def main():
 #  this is shown with --help and -h
@@ -39,7 +22,7 @@ def main():
    args = parser.parse_args()
    if ( args.example ):
       print(usage)
-      print("example:", "sec2cal.py 815263861.123000" )
+      print("example:", "sec2iso.py 815263861.123000" )
       quit()
 #  allow for pipe input here
    if not sys.stdin.isatty():
