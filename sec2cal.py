@@ -21,8 +21,9 @@ def sec2cal(sec,verbose=False):
        frac += 1
 
     jd = sec2jd( sec - frac + 0.5);
-    year, month, day, hour, minute, second, temp = jd2cal(jd)
-    secondfrac = float( second ) + frac
+    year, month, day, hour, minute, secondfrac = jd2cal(jd)
+    second = int(secondfrac)
+    secondfrac = second + frac
 
     return year, month, day, hour, minute, secondfrac
 
