@@ -2,7 +2,7 @@
 """
 Usage: Takes the components of a calendar date and time
        input year, month, day, hour, minute, second.frac
-       and returns 06-Jan-2039 20:40:31.000 for example
+       and returns 06-jan-2039 20:40:31.000 for example
 """
 usage = __doc__
 
@@ -18,8 +18,8 @@ def cal2chr(year, month, day, hour, minute, second, frac, verbose=False):
       sec past J2000.0 reference date
     """
     month_name = [
-        "***", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        "***", "jan", "feb", "mar", "apr", "may", "jun",
+        "jul", "aug", "sep", "oct", "nov", "dec"
     ]
 
     real_sec = float (second) + frac
