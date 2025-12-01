@@ -20,7 +20,7 @@ def jd2sec(jd,verbose=False):
     second = int(secondfrac)
     frac = secondfrac - second
 
-    sec = cal2sec(year, month, day, hour, minute, second, frac)
+    sec = cal2sec(year, month, day, hour, minute, secondfrac)
     return sec
 
 def main():

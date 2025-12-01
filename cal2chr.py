@@ -10,7 +10,7 @@ import sys
 import argparse
 from date2j import date2j
 
-def cal2chr(year, month, day, hour, minute, second, frac, verbose=False):
+def cal2chr(year, month, day, hour, minute, secondfrac, verbose=False):
     """
     Takes the components of a calendar date and time
             Year, Month, Day , Hour , Minute , Second.Frac
@@ -22,7 +22,7 @@ def cal2chr(year, month, day, hour, minute, second, frac, verbose=False):
         "jul", "aug", "sep", "oct", "nov", "dec"
     ]
 
-    real_sec = float (second) + frac
+    real_sec = secondfrac
 
     return f"{day:2d}-{month_name[month]}-{year:04d} {hour:02d}:{minute:02d}:{real_sec:09.6f}"
 
@@ -53,6 +53,7 @@ def main():
       frac   = float( ymdhrms[5] if len(ymdhrms) > 5 else 0.0 )
       second = int( frac )
       frac  -= float( second )
+      secondfrac = second + frac
    else:
       if ( len(args.ymdhrms) < 1 ):
          print(usage)
@@ -65,11 +66,12 @@ def main():
       frac   = float( args.ymdhrms[5] if len(args.ymdhrms) > 5 else 0.0 )
       second = int( frac )
       frac  -= float( second )
+      secondfrac = second + frac
    if ( args.verbose ):
       print(usage)
       print("input time was", f"{year:4d} {month:02d} {day:02d} {hour:02d} {minute:02d} {second:02d} {frac:10.6f}")
       print("output time is:", end=" " )
-   chr = cal2chr( year, month, day, hour, minute, second, frac )
+   chr = cal2chr( year, month, day, hour, minute, secondfrac )
    print(chr)
 
 if __name__ == "__main__":

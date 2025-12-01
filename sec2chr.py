@@ -8,10 +8,15 @@ import sys
 import argparse
 from sec2cal import sec2cal
 
-    month_name = [
-        "***", "jan", "feb", "mar", "apr", "may", "jun",
-        "jul", "aug", "sep", "oct", "nov", "dec"
-    ]
+def sec2chr( sec, verbose=False):
+   """ converts sec from reference epoch to DD-MMM-YYYY HH:MM:SS.FFFF"""
+   year, month, day, hour, minute, secondfrac = sec2cal(sec)
+   month_name = [
+       "***", "jan", "feb", "mar", "apr", "may", "jun",
+       "jul", "aug", "sep", "oct", "nov", "dec"
+   ]
+   return f"{day:2d}-{month_name[month]}-{year:04d} {hour:02d}:{minute:02d}:{secondfrac:09.6f}"
+
 
 
 def main():
@@ -42,10 +47,9 @@ def main():
    if ( args.verbose ):
       print(usage)
       print("input time was:", sec )
-      print("output:")
-    
-   year, month, day, hour, minute, secondfrac = sec2chr(sec)
-   print(f"{day:02d}-{month}-{year:04d} {hour:02d}:{minute:02d}:{secondfrac:06.3f}")
+      print("output time is:", end=" " )
+   chr = sec2chr(sec)
+   print(chr)
 
 if __name__ == "__main__":
    main()

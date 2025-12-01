@@ -10,7 +10,7 @@ import sys
 import argparse
 from date2j import date2j
 
-def cal2sec(year, month, day, hour, minute, second, frac, verbose=False):
+def cal2sec(year, month, day, hour, minute, secondfrac, verbose=False):
     """
     Takes the components of a calendar date and time
             Year, Month, Day , Hour , Minute , Second.Frac
@@ -19,7 +19,7 @@ def cal2sec(year, month, day, hour, minute, second, frac, verbose=False):
     """
     jdref = 2451545.0 
     jd = date2j( year, month, day ) - 0.5
-    sec = (jd - jdref)*86400.0 + hour*3600.0 + minute*60.0 + second + frac
+    sec = (jd - jdref)*86400.0 + hour*3600.0 + minute*60.0 + secondfrac
 
     return sec
 
@@ -50,6 +50,7 @@ def main():
       frac   = float( ymdhrms[5] if len(ymdhrms) > 5 else 0.0 )
       second = int( frac )
       frac  -= float( second )
+      secondfrac = second + frac
    else:
       if ( len(args.ymdhrms) < 1 ):
          print(usage)
@@ -62,11 +63,12 @@ def main():
       frac   = float( args.ymdhrms[5] if len(args.ymdhrms) > 5 else 0.0 )
       second = int( frac )
       frac  -= float( second )
+      secondfrac = second + frac
    if ( args.verbose ):
       print(usage)
       print("input time was", f"{year:4d} {month:02d} {day:02d} {hour:02d} {minute:02d} {second:02d} {frac:10.6f}")
       print("output time is:", end=" " )
-   sec = cal2sec(year, month, day, hour, minute, second, frac )
+   sec = cal2sec(year, month, day, hour, minute, secondfrac  )
    print(f"{sec:18.6f}")
 
 if __name__ == "__main__":
