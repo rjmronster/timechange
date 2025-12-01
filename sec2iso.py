@@ -9,6 +9,10 @@ import sys
 import argparse
 from sec2cal import sec2cal
 
+def sec2iso(sec)
+   year, month, day, hour, minute, secondfrac = sec2cal(sec)
+   return f"{year:04d}-{month:02d}-{day:02d}T{hour:02d}:{minute:02d}:{secondfrac:06.3f}Z")
+
 def main():
 #  this is shown with --help and -h
    parser = argparse.ArgumentParser(description = "compute year month day from Julian day number")
@@ -38,8 +42,8 @@ def main():
       print(usage)
       print("input time was:", sec )
       print("output:")
-   year, month, day, hour, minute, secondfrac = sec2cal(sec)
-   print(f"{year:04d}-{month:02d}-{day:02d}T{hour:02d}:{minute:02d}:{secondfrac:06.3f}Z")
+   chr = sec2iso(sec)
+   print(chr)
 
 if __name__ == "__main__":
    main()

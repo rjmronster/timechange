@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Usage: Takes the components of a calendar date and time
+Usage: Takes the components of a calendar date and time to character.
        input year, month, day, hour, minute, second.frac
        and returns 06-jan-2039 20:40:31.000 for example
 """
